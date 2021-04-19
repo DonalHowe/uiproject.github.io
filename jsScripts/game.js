@@ -119,6 +119,65 @@ function attack(){
     playerAttack=true;
     
     }
+
+    var gameObjects = {
+        'positionX': 1,
+        'positionY': 2,
+        'score': 3
+      };
+
+        // Game objects as JSON
+  localStorage.setItem('gameObjects', JSON.stringify(gameObjects));
+
+  // Retrieve Games object as from storage
+  var npcObjects = localStorage.getItem('gameObjects');
+
+  console.log('PLAYER_OBJECTS: ', JSON.parse(npcObjects));
+
+  // Reading Level Information from a file
+  var readJSONFromURL = function (url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+
+    xhr.onload = function () {
+      var status = xhr.status;
+      if (status == 200) {
+        callback(null, xhr.response);
+      } else {
+        callback(status);
+      }
+    };
+
+    xhr.send();
+  };
+
+  readJSONFromURL('./data/level.json', function (err, data) {
+    if (err != null) {
+      console.error(err);
+    } else {
+      var text = data["positionX"];
+      console.log(text);
+      var text = data["positionY"];
+      console.log(text);
+      var text = data["score"];
+      console.log(text);
+    }
+  });
+
+  // local storage function
+  function updateScore(){
+    var score=localStorage.getItem('score');
+    if (isNaN(score)) {
+      localStorage.setItem('score', 0);
+        document.getElementById("SCORE").innerHTML = " [ " + score + " ] ";
+    } else {
+        localStorage.setItem('score', parseInt(score)+1);
+       document.getElementById("SCORE").innerHTML = " [ " + score + " ] ";
+    }
+   
+  }
+ 
 //weapon selection function 
 function weaponSelection(){
     var selection = document.getElementById("equipment").value;
@@ -267,6 +326,7 @@ function checkCollsions(){
         playersTurn=true;
     }
 }
+updateScore();
 //the base game loop 
 function GameLoop()
 {
