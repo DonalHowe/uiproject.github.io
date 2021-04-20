@@ -6,19 +6,19 @@ var context= canvas.getContext("2d");
 //starting background variables
 
 var backgroundImageOutside=new Image();
-backgroundImageOutside.src="rescources/images/backgroundOutsideCastle.jfif"
+backgroundImageOutside.src="images/backgroundOutsideCastle.jfif"
 
 //player setup sprite variables
 var playerSprite=new Image();
 var playername="knight";
-playerSprite.src="rescources/images/knight2.png"
+playerSprite.src="images/knight2.png"
 
 var Weapon=new Image();
-Weapon.src="rescources/images/weaponEmpty.png"
+Weapon.src="images/weaponEmpty.png"
 
 //enemy sprite variables
 var enemySprite=new Image();
-enemySprite.src="rescources/images/toothless.png"
+enemySprite.src="images/toothless.png"
 
 //animation variables
 var current=0;
@@ -32,7 +32,7 @@ var characterArray=[player, new PlayerObject("enemy",enemySprite,100,500,500)];
 
 //shield variables
 var shieldImage=new Image();
-shieldImage.src="rescources/images/force_field.png"
+shieldImage.src="images/force_field.png"
 var shieldSelected=false;
 
 //player original posiiton
@@ -49,7 +49,7 @@ var playerAttack=false;
 
 //enemy weapons variables toothless and wizard
 var fireballSprite=new Image();
-fireballSprite.src="rescources/images/toothless_fire.png"
+fireballSprite.src="images/toothless_fire.png"
 var enemyfireBallSpawnX=characterArray[1].x;
 var enemyfireBallSpawnY=characterArray[1].y;
 //turn rotation variables
@@ -193,13 +193,13 @@ function weaponSelection(){
 
     if(selection=="mace")
     {
-        Weapon.src="./rescources/images/maceFinished.png";
+        Weapon.src="./images/maceFinished.png";
         console.log("yolo");
         maceMove=false;
     }
     else if(selection=="sword")
     {
-        Weapon.src="./rescources/images/swordFinished.png";
+        Weapon.src="./images/swordFinished.png";
         console.log("yoloWWWWW");
 
     }

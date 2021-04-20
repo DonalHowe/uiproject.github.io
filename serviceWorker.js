@@ -5,6 +5,7 @@ var filesToCache=[
     '/newLoader.html',
     '/css/style.css',
     '/jsScripts/script.js'
+    '/jsScripts/loaderScript.js'
 ];
 
 self.addEventListener('install',function(e)
