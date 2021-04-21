@@ -1,11 +1,11 @@
 var cacheName ='DonalHowe-Pwa'
 var filesToCache=[
-    '/',
-    '/index.html',
-    '/newLoader.html',
-    '/css/push.css',
-    '/jsScripts/game.js',
-    '/jsScripts/loaderScript.js'
+    './',
+    './index.html',
+    './newLoader.html',
+    './css/push.css',
+    './jsScripts/game.js',
+    './jsScripts/loaderScript.js'
 ];
 
 self.addEventListener('install',function(e)
