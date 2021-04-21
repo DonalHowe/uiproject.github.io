@@ -4,7 +4,7 @@ var filesToCache=[
     '/index.html',
     '/newLoader.html',
     '/css/style.css',
-    '/jsScripts/script.js'
+    '/jsScripts/script.js',
     '/jsScripts/loaderScript.js'
 ];
 
