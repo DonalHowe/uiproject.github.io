@@ -1,9 +1,10 @@
-var cacheName ='DonalHowe-Pwa'
-var filesToCache=[
+
+var cacheName = 'DonalHowe-Pwa'
+var filesToCache = [
     '/',
     '/index.html',
     '/newLoader.html',
-    '/css/push.css',
+    '/css/style.css',
     '/jsScripts/game.js',
     '/jsScripts/loaderScript.js'
 ];
