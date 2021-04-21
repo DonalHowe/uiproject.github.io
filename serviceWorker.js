@@ -3,8 +3,8 @@ var filesToCache=[
     '/',
     '/index.html',
     '/newLoader.html',
-    '/css/style.css',
-    '/jsScripts/script.js',
+    '/css/push.css',
+    '/jsScripts/game.js',
     '/jsScripts/loaderScript.js'
 ];
 
