@@ -45,8 +45,15 @@ var player_startPosY=550;
 
 //weapon variables
 var playerAttack=false;
+// win variables
+var EnemyDead=false;
+var GameWonSprite=new Image();
+GameWonSprite.src="images/gameWin.jfif"
 
-
+// game lost variables
+var playerDead=false;
+var gameLostSprite= new Image();
+gameLostSprite.src="images/gaeLostSprite.png"
 //enemy weapons variables toothless and wizard
 var fireballSprite=new Image();
 fireballSprite.src="images/toothless_fire.png"
@@ -91,8 +98,18 @@ function animate() {
         currentFrame = (currentFrame + 1) % frames; // update frame
         initial = current; // reset initial
     } 
-
-    context.drawImage(backgroundImageOutside,0,0,450,400);
+    if(EnemyDead==false&& playerDead==false)
+    {
+      context.drawImage(backgroundImageOutside,0,0,400,400);
+    }
+    else if(EnemyDead==true){
+      context.drawImage(GameWonSprite,0,0,400,400)
+    }
+    if(playerDead==true)
+    {
+      context.drawImage(gameLostSprite,0,0,400,400)
+    }
+  
    
     context.drawImage(enemySprite,characterArray[1].x,characterArray[1].y,100,100);
     
@@ -103,8 +120,8 @@ function animate() {
 
         context.drawImage(fireballSprite,enemyfireBallSpawnX,enemyfireBallSpawnY,20,20);
     }
- WeaponPositionX=knightPositionX+20;
- WeaponPositionY=knightPositionY-20;
+        WeaponPositionX=knightPositionX+20;
+        WeaponPositionY=knightPositionY-20;
     context.drawImage(Weapon,WeaponPositionX,WeaponPositionY);
     if(shieldSelected==true)
     {
@@ -324,6 +341,7 @@ function checkCollsions(){
         console.log("fireBallCollided");
         fireBallShot=true;
         playersTurn=true;
+       
     }
 }
 updateScore();
