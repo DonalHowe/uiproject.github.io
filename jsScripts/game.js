@@ -58,7 +58,7 @@ var  playerHit=false;
 // game lost variables
 var playerDead=false;
 var gameLostSprite= new Image();
-gameLostSprite.src="images/gaeLostSprite.png"
+gameLostSprite.src="images/gameLostSprite.png"
 var playerPickShield=false;
 //////////////////////////////////////////////////////////////////////////
 //enemy weapons variables toothless and wizard
