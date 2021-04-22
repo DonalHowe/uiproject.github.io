@@ -8,6 +8,9 @@ context.font = "30px Arial";
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var backgroundImageOutside=new Image();
 backgroundImageOutside.src="images/backgroundOutsideCastle.jfif"
+
+var dragonLeft=new Image();
+dragonLeft.src="images/toothlessLeft.png"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //player setup sprite variables
 var playerSprite=new Image();
@@ -21,6 +24,8 @@ var enemySprite=new Image();
 enemySprite.src="images/toothless.png"
 var maceSelected=false;
 var swordSelected=false;
+ var enemyRight=true;
+ var enemyLeft=false;
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //animation variables
 var current=0;
@@ -83,6 +88,7 @@ var WeaponPositionY=0;
 var maceMove=true;
 var enemyDamage=5;
 var selctPoint=false;
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //weapon object class
 function weaponObject(name, health){
@@ -105,6 +111,7 @@ function PlayerObject(name, health){
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //player animation function
 function animate() {
     context.clearRect(0, 0, canvas.width, canvas.height); 
@@ -120,7 +127,15 @@ function animate() {
      
     }
    //drawing the enemy sprite
+   if(enemyRight==true)
+   {
     context.drawImage(enemySprite,characterArray[1].x,characterArray[1].y,100,100);
+   }
+   else if(enemyLeft==true )
+   {
+    context.drawImage(dragonLeft,characterArray[1].x,characterArray[1].y,100,100);
+   }
+    
     // player sprite drawing
     context.drawImage(playerSprite,playerSprite.width/6*currentFrame,0,player_startPos,player_startPosY,knightPositionX,knightPositionY,100,100);
 
@@ -329,11 +344,31 @@ for (var i = 0; i < options.length; i++) {
 //enemy basic movement
 function enemyMovement(){
 
-    characterArray[1].x+=1;
-    if(characterArray[1].x>=310)
+   
+    if(enemyLeft==true)
     {
-        characterArray[1].x=10;
+        characterArray[1].x-=1;
+        if(characterArray[1].x==0)
+        {
+         enemyRight=true;
+         enemyLeft=false;
+         console.log("turn Right");
+        }
+       
     }
+    if(enemyRight==true)
+    {
+     
+      characterArray[1].x+=1;
+      if(characterArray[1].x==210)
+      {
+        enemyLeft=true;
+        enemyRight=false;
+        console.log("turn left");
+      }
+     
+    }
+  
     
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
